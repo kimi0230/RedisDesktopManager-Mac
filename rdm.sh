@@ -14,7 +14,8 @@ git checkout -b $TAG $TAG
 
 echo '=======================Build lz4======================='
 cd $SHELL_FOLDER/rdm/3rdparty/lz4/build/cmake
-cmake -DLZ4_BUNDLED_MODE=ON -DBUILD_SHARED_LIBS=ON --build .
+# cmake -DLZ4_BUNDLED_MODE=ON -DBUILD_SHARED_LIBS=ON --build .
+cmake -DLZ4_BUNDLED_MODE=ON  
 ls
 make -s -j 8
 
@@ -54,7 +55,7 @@ cd $SHELL_FOLDER/rdm/src/resources
 echo 'copy Info.plist'
 cp Info.plist.sample Info.plist
 cd $SHELL_FOLDER/rdm/src
-qmake rdm.pro CONFIG-=debug
+/usr/local/Cellar/qt@5/5.15.2/bin/qmake rdm.pro CONFIG-=debug
 make -s -j 8
 
 

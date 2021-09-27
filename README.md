@@ -8,22 +8,16 @@ Latest version: 2020.6
 
 ## Usage
 
-Install qt
-
+#### brew install package
 ```shell
-brew install qt
+brew install openssl cmake python3 qt@5
 ```
+Change `qmake rdm.pro CONFIG-=debug` in `rdm.sh` qt5 to `/usr/local/Cellar/qt@5/5.15.2/bin/qmake rdm.pro CONFIG-=debug`. It is a workaround prevent qmake from runing `/Users/kimiimac/opt/anaconda3/bin/qmake`.
 
-Install python
-
-```shell
-brew install python@3.7
-```
-
-Install python requirements
+#### install python requirements
 
 ```shell
-pip3 install -r https://raw.githubusercontent.com/uglide/RedisDesktopManager/2020/src/py/requirements.txt --upgrade
+pip3 install -r https://raw.githubusercontent.com/uglide/RedisDesktopManager/2021/src/py/requirements.txt --upgrade
 ```
 
 Download latest DMG file from [release](https://github.com/zgr0629/RedisDesktopManager-Mac/releases) page. Load Dmg file and drag .app file to your Application folder and enjoy.
@@ -41,3 +35,7 @@ make: *** [../bin/osx/release/RDM.app/Contents/MacOS/RDM] Error 1
 ```
 
 Thanks to https://github.com/FuckDoctors/rdm-builder, I build a github action to build RDM.app
+
+## Reference
+* http://docs.redisdesktop.com/en/latest/install/#mac-os-x
+* https://github.com/zgr0629/RedisDesktopManager-Mac
