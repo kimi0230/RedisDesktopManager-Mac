@@ -17,6 +17,7 @@ Change `qmake rdm.pro CONFIG-=debug` in `rdm.sh` qt5 to `/usr/local/Cellar/qt@5/
 #### install python requirements
 
 ```shell
+pip3 install pathlib
 pip3 install -r https://raw.githubusercontent.com/uglide/RedisDesktopManager/2021/src/py/requirements.txt --upgrade
 ```
 
@@ -33,6 +34,9 @@ clang: error: no such file or directory: '/System/Library/Frameworks/CoreFoundat
 clang: error: no such file or directory: '/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices'
 make: *** [../bin/osx/release/RDM.app/Contents/MacOS/RDM] Error 1
 ```
+### fix
+`cmake -DLZ4_BUNDLED_MODE=ON .`  Instead of ` cmake -DLZ4_BUNDLED_MODE=ON -DBUILD_SHARED_LIBS=ON --build .`
+
 
 Thanks to https://github.com/FuckDoctors/rdm-builder, I build a github action to build RDM.app
 
