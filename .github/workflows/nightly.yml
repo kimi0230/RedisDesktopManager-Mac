@@ -209,7 +209,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.9' # SemVer's version range syntax
+        python-version: '3.7.9' # SemVer's version range syntax
         repository: uglide/RedisDesktopManager
         path: rdm
         submodules: 'recursive'
@@ -238,8 +238,9 @@ jobs:
       run: |
         brew unlink python@3.10
         brew unlink python@3.9
-        brew reinstall python@3.9
-        brew link --overwrite python@3.9
+        # brew reinstall python@3.9
+        brew install python@3.7.9
+        brew link --overwrite python@3.7.9
         python -V
     
     # 使用私有库,egg-links时-t不能同时使用，--user解决权限问题
