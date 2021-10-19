@@ -238,7 +238,6 @@ jobs:
         brew unlink python@3.9
         brew reinstall python@3.9
         brew link --overwrite python@3.9
-        python3 -m pip install --upgrade pip
     
     # 使用私有库,egg-links时-t不能同时使用，--user解决权限问题
     # https://github.com/UnitedIncome/serverless-python-requirements/issues/240
@@ -248,6 +247,8 @@ jobs:
     # sudo pip3 install --prefix . -r $GITHUB_WORKSPACE/rdm/src/py/requirements.txt
     # sudo pip3 install -t . -r $GITHUB_WORKSPACE/rdm/src/py/requirements.txt
     - name: pip install
+      with:
+        python-version: '3.9.7'
       run: |
         cd rdm
         mkdir -p bin/osx/release && cd bin/osx/release
