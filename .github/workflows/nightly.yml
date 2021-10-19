@@ -247,7 +247,7 @@ jobs:
     # sudo pip3 install --prefix . -r $GITHUB_WORKSPACE/rdm/src/py/requirements.txt
     # sudo pip3 install -t . -r $GITHUB_WORKSPACE/rdm/src/py/requirements.txt
     - name: pip install
-    - uses: actions/setup-python@v2
+      uses: actions/setup-python@v2
       with:
         python-version: '3.9.7'
       run: |
