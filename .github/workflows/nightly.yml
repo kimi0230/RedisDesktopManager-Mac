@@ -234,10 +234,10 @@ jobs:
     
     - name: setup python
       run: |
-        # brew unlink python@3.10
-        # brew unlink python@3.9
-        # brew reinstall python@3.9
-        # brew link --overwrite python@3.9
+        brew unlink python@3.10
+        brew unlink python@3.9
+        brew reinstall python@3.9
+        brew link --overwrite python@3.9
         python3 -m pip install --upgrade pip
     
     # 使用私有库,egg-links时-t不能同时使用，--user解决权限问题
