@@ -202,9 +202,6 @@ jobs:
   build_on_osx:
     needs: create_release
     runs-on: macos-latest
-    strategy:
-      matrix:
-        python-version: [ '3.9' ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -257,6 +254,7 @@ jobs:
         cp -Rf $GITHUB_WORKSPACE/rdm/src/py .
         cd py
         echo six >> requirements.txt
+        echo python -V
         sudo pip3 install -t . -r requirements.txt
         sudo python3 -m compileall -b .
         sudo find . -name "*.py" | sudo xargs rm -rf
