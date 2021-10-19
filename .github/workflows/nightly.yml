@@ -202,6 +202,9 @@ jobs:
   build_on_osx:
     needs: create_release
     runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: [ '3.9' ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
