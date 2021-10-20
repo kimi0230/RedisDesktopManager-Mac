@@ -232,13 +232,13 @@ jobs:
         cd rdm
         cd ./src && cp ./resources/Info.plist.sample ./resources/Info.plist
     
-    - name: setup python
-      run: |
-        brew unlink python@3.10
-        brew unlink python@3.9
-        brew install python@3.7
-        brew link --overwrite python@3.7
-        python -V
+    # - name: setup python
+    #   run: |
+    #     brew unlink python@3.10
+    #     brew unlink python@3.9
+    #     brew install python@3.7
+    #     brew link --overwrite python@3.7
+    #     python -V
     
     # 使用私有库,egg-links时-t不能同时使用，--user解决权限问题
     # https://github.com/UnitedIncome/serverless-python-requirements/issues/240
@@ -249,6 +249,11 @@ jobs:
     # sudo pip3 install -t . -r $GITHUB_WORKSPACE/rdm/src/py/requirements.txt
     - name: pip install
       run: |
+        brew unlink python@3.10
+        brew unlink python@3.9
+        brew install python@3.7
+        brew link --overwrite python@3.7
+        python -V
         cd rdm
         mkdir -p bin/osx/release && cd bin/osx/release
         cp -Rf $GITHUB_WORKSPACE/rdm/src/py .
