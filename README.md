@@ -1,5 +1,5 @@
 # RedisDesktopManager-Mac 
-[![Build latest tag](https://github.com/kimi0230/RedisDesktopManager-Mac/actions/workflows/tag.yml/badge.svg)](https://github.com/kimi0230/RedisDesktopManager-Mac/actions/workflows/tag.yml)
+[![Build latest tag](https://github.com/kimi0230/RedisDesktopManager-Mac/actions/workflows/tag.yml/badge.svg)](https://github.com/kimi0230/RedisDesktopManager-Mac/actions/workflows/tag.yml)   [![Build nightly version](https://github.com/kimi0230/RedisDesktopManager-Mac/actions/workflows/nightly.yml/badge.svg)](https://github.com/kimi0230/RedisDesktopManager-Mac/actions/workflows/nightly.yml)
 
 This repository provides a shell can compile [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager), as well as a compiled DMG file.
 
