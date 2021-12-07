@@ -290,17 +290,11 @@ jobs:
     # sudo pip3 install -t . -r $GITHUB_WORKSPACE/rdm/src/py/requirements.txt
     - name: pip install
       run: |
-        brew unlink python@3.10
-        brew unlink python@3.9
-        brew install python@3.7
-        brew link --overwrite python@3.7
-        python -V
         cd rdm
         mkdir -p bin/osx/release && cd bin/osx/release
         cp -Rf $GITHUB_WORKSPACE/rdm/src/py .
         cd py
         echo six >> requirements.txt
-        python -V
         sudo pip3 install -t . -r requirements.txt
         sudo python3 -m compileall -b .
         sudo find . -name "*.py" | sudo xargs rm -rf
