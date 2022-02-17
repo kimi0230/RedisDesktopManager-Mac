@@ -4,10 +4,14 @@
 This repository provides a shell can compile [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager), as well as a compiled DMG file.
 Auto build 22:00 UTC every day.
 
+<<<<<<< HEAD
 Latest version: 2021.10
 https://github.com/kimi0230/RedisDesktopManager-Mac/releases
 
 Download latest DMG file from [release](https://github.com/kimi0230/RedisDesktopManager-Mac/releases) page. Load Dmg file and drag .app file to your Application folder and enjoy. Package will build at 22:00 UTC every day.
+=======
+![screenshots](https://raw.githubusercontent.com/zgr0629/RedisDesktopManager-Mac/master/screenshots.2022.0.png)
+>>>>>>> zgr0629/master
 
 If you have any questions, please feel free to submit an issue.
 
