@@ -23,8 +23,8 @@ on:
     - cron: '0 22 * * *' # Runs at 22:00 UTC every day
 
 env:
-  RDM_REF: 2021
-  VERSION: 2021.99.0
+  RESP_REF: 2022
+  VERSION: 2022.99.0
   PY_LIB_VERSION: 38
   PYTHON_EMBEDDED_VERSION: 3.8.10
   CMAKE_VS: Visual Studio 16 2019
@@ -47,7 +47,7 @@ jobs:
       - uses: dev-drprasad/delete-tag-and-release@v0.1.2
         with:
           delete_release: true # default: false
-          tag_name: ${{ env.RDM_REF }}-nightly # tag name to delete
+          tag_name: ${{ env.RESP_REF }}-nightly # tag name to delete
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -57,10 +57,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ env.RDM_REF }}-nightly
-          release_name: v${{ env.RDM_REF }}-nightly
+          tag_name: ${{ env.RESP_REF }}-nightly
+          release_name: v${{ env.RESP_REF }}-nightly
           body: |
-            ${{ env.RDM_REF }}-nightly
+            ${{ env.RESP_REF }}-nightly
           draft: false
           prerelease: true
 
@@ -87,7 +87,7 @@ jobs:
         repository: uglide/RedisDesktopManager
         path: resp
         submodules: 'recursive'
-        ref: ${{ env.RDM_REF }}
+        ref: ${{ env.RESP_REF }}
 
     # install QT   
     - name: install QT
@@ -98,7 +98,7 @@ jobs:
 
     - name : fix compilation
       run: |
-        cd rdm/3rdparty/qredisclient/3rdparty/hiredis
+        cd resp/3rdparty/qredisclient/3rdparty/hiredis
         git apply ../hiredis-win.patch
 
     - name: install zlib
@@ -231,7 +231,7 @@ jobs:
         repository: uglide/RedisDesktopManager
         path: resp
         submodules: 'recursive'
-        ref: ${{ env.RDM_REF }}
+        ref: ${{ env.RESP_REF }}
 
     - name: build lz4
       run: |
@@ -304,7 +304,7 @@ jobs:
 
     - name: release translations
       run: |
-        cd rdm/src
+        cd resp/src
         lupdate resp.pro
         lrelease -verbose resp.pro
 
