@@ -200,7 +200,7 @@ jobs:
       shell: cmd
       run: |
         cd exe
-        copy /y bin\windows\release\exe.exe build\windows\installer\resources\resp.exe
+        copy /y bin\windows\release\resp.exe build\windows\installer\resources\resp.exe
         copy /y bin\windows\release\resp.exp build\windows\installer\resources\resp.exp
         copy /y bin\windows\release\resp.lib build\windows\installer\resources\resp.lib
         cd build\windows\installer\resources
