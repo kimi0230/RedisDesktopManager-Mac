@@ -194,12 +194,12 @@ jobs:
 
     # windeployqt
     # https://doc.qt.io/qt-5/windows-deployment.html
-    # windeployqt.exe --force --qmldir ${{ env.QML2_IMPORT_PATH }} rdm.exe
+    # windeployqt.exe --force --qmldir ${{ env.QML2_IMPORT_PATH }} resp.exe
     - name: package
       id: pacage
       shell: cmd
       run: |
-        cd exe
+        cd resp
         copy /y bin\windows\release\resp.exe build\windows\installer\resources\resp.exe
         copy /y bin\windows\release\resp.exp build\windows\installer\resources\resp.exp
         copy /y bin\windows\release\resp.lib build\windows\installer\resources\resp.lib
@@ -215,7 +215,7 @@ jobs:
       with:
         # upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         upload_url: ${{ needs.create_release.outputs.upload_url }}
-        asset_path: resp/build/windows/installer/resp-${{ env.VERSION }}.exe
+        asset_path: resp/build/windows/installer/resp-${{ env.VERSION }}.0.exe
         asset_name: resp-${{ env.VERSION }}.exe
         asset_content_type: application/vnd.microsoft.portable-executable
 
@@ -319,6 +319,7 @@ jobs:
       id: build
       run: |
         # python ./resp/build/utils/set_version.py ${{ env.VERSION }} > ./resp/src/version.h
+        sed -i "" "/^\( *\)VERSION=.*/s//\1VERSION=${{ env.VERSION }}/" ./resp/src/resp.pro
         cd resp/src
         qmake resp.pro CONFIG-=debug "VERSION=${{ env.VERSION }}"
         make -s -j 8
