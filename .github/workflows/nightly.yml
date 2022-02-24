@@ -27,7 +27,7 @@ env:
   VERSION: 2022.99.0
   PY_LIB_VERSION: 38
   PYTHON_EMBEDDED_VERSION: 3.8.10
-  CMAKE_VS: Visual Studio 16 2019
+  CMAKE_VS: Visual Studio 17 2022
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
