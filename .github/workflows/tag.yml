@@ -330,6 +330,7 @@ jobs:
         cp -Rf $GITHUB_WORKSPACE/resp/src/py .
         cd py
         echo six >> requirements.txt
+        sudo python3 -m pip install --upgrade pip
         sudo pip3 install -t . -r requirements.txt
         sudo python3 -m pip install --upgrade pip setuptools wheel
         sudo python3 -m compileall -b .
