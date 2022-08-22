@@ -297,7 +297,6 @@ jobs:
         cd py
         echo six >> requirements.txt
         sudo pip3 install -t . -r requirements.txt
-        sudo python3 -m pip install --upgrade pip setuptools wheel
         sudo python3 -m compileall -b .
         sudo find . -name "*.py" | sudo xargs rm -rf
         sudo find . -name "__pycache__" | sudo xargs rm -rf
