@@ -111,7 +111,7 @@ jobs:
     - name: build lz4
       run: |
         cd resp/3rdparty/lz4/build/cmake
-        cmake -G "Visual Studio 16 2019" -A x64 -DLZ4_BUNDLED_MODE=ON -DBUILD_SHARED_LIBS=ON -B .
+        cmake -G "${{ env.CMAKE_VS }}" -A x64 -DLZ4_BUNDLED_MODE=ON -DBUILD_SHARED_LIBS=ON -B .
         cmake --build . --config Release
 
     - name: build zstd
@@ -249,27 +249,29 @@ jobs:
     - name: build snappy
       run: |
         cd resp/3rdparty/snappy
+        git submodule update --remote
         cmake . && make
 
     - name: build brotli
       run: |
         cd resp/3rdparty/brotli
-        cmake -DCMAKE_BUILD_TYPE=Release
-        cmake --build . --config Release
+        cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
+        cmake --build . --config Release --target install
 
-    - name: setup python
-      run: |
-        brew unlink python@3.10
-        brew reinstall python@3.9
-        brew link --overwrite python@3.9
-        brew link python3
+    # - name: setup python
+    #   run: |
+    #     brew unlink python@3.10
+    #     brew reinstall python@3.9
+    #     brew link --overwrite python@3.9
+    #     brew link python3
 
     # install QT   
     - name: install QT
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with: 
         version: '5.15.1'
         modules: 'qtcharts'
+        setup-python: 'false'
     
     - name: copy info.plist
       run: |
